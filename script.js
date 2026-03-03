@@ -1,103 +1,50 @@
-// ==========================
-// Smooth Scroll for buttons
-// ==========================
+// Typing Effect
+const text = "Rhmany";
+let i = 0;
+function type(){
+  if(i < text.length){
+    document.getElementById("typing").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(type,80);
+  }
+}
+type();
 
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute("href"));
-    if (target) {
-      target.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
-    }
-  });
-});
-
-// ==========================
-// Scroll Reveal Animation
-// ==========================
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
+// Scroll animation
+const sections = document.querySelectorAll(".section");
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
       entry.target.classList.add("show");
     }
   });
-}, {
-  threshold: 0.15
-});
+},{threshold:0.2});
 
-document.querySelectorAll(".section, .project-card, .skills-grid div").forEach(el => {
-  el.classList.add("hidden");
-  observer.observe(el);
-});
+sections.forEach(section=>observer.observe(section));
 
-// ==========================
-// Typing Effect for Hero
-// ==========================
-
-const heroTitle = document.querySelector(".hero h1");
-
-if(heroTitle){
-  const text = heroTitle.innerText;
-  heroTitle.innerText = "";
-  let i = 0;
-
-  function typeEffect(){
-    if(i < text.length){
-      heroTitle.innerText += text.charAt(i);
-      i++;
-      setTimeout(typeEffect, 60);
-    }
-  }
-
-  typeEffect();
+function scrollToSection(id){
+  document.getElementById(id).scrollIntoView({behavior:"smooth"});
 }
 
-// ==========================
-// Button Ripple Effect
-// ==========================
+// Pet Auto Messages
+const messages=[
+  "Welcome 👋",
+  "استغفر ربنا 🤍",
+  "صلي على النبي ﷺ",
+  "Keep learning security 🔐",
+  "Stay ethical ⚔"
+];
 
-document.querySelectorAll(".primary-btn").forEach(btn => {
-  btn.addEventListener("click", function(e){
-    const circle = document.createElement("span");
-    circle.classList.add("ripple");
+function showPet(){
+  const msgBox=document.getElementById("petMsg");
+  const random=messages[Math.floor(Math.random()*messages.length)];
+  msgBox.innerText=random;
+  msgBox.style.display="block";
+  setTimeout(()=>{msgBox.style.display="none"},4000);
+}
 
-    const rect = btn.getBoundingClientRect();
-    circle.style.left = e.clientX - rect.left + "px";
-    circle.style.top = e.clientY - rect.top + "px";
+setInterval(showPet,15000);
 
-    btn.appendChild(circle);
-
-    setTimeout(() => {
-      circle.remove();
-    }, 600);
-  });
-});
-
-// ==========================
-// Parallax Background Effect
-// ==========================
-
-window.addEventListener("scroll", () => {
-  const hero = document.querySelector(".hero");
-  const scrollY = window.scrollY;
-  if(hero){
-    hero.style.backgroundPositionY = scrollY * 0.4 + "px";
-  }
-});
-
-// ==========================
-// Cursor Glow Effect
-// ==========================
-
-const cursor = document.createElement("div");
-cursor.classList.add("cursor-glow");
-document.body.appendChild(cursor);
-
-document.addEventListener("mousemove", e => {
-  cursor.style.left = e.clientX + "px";
-  cursor.style.top = e.clientY + "px";
-});
+function manualPet(){
+  showPet();
+}
