@@ -48,3 +48,32 @@ setInterval(showPet,15000);
 function manualPet(){
   showPet();
 }
+const skillDetails = {
+  nmap:{
+    title:"Nmap (Network Mapper)",
+    text:"Nmap is a powerful open-source tool used for network discovery, port scanning, service enumeration and vulnerability identification. It helps security professionals identify open ports, running services and potential attack surfaces."
+  },
+  linux:{
+    title:"Linux Systems",
+    text:"Linux plays a critical role in cybersecurity. Most security tools run on Linux distributions like Kali. It provides flexibility, control and powerful networking capabilities."
+  }
+};
+
+document.querySelectorAll(".skill-card").forEach(card=>{
+  card.addEventListener("click",function(e){
+
+    if(e.target.classList.contains("more-btn")){
+      const skill = card.getAttribute("data-skill");
+      document.getElementById("modalTitle").innerText = skillDetails[skill].title;
+      document.getElementById("modalText").innerText = skillDetails[skill].text;
+      document.getElementById("skillModal").style.display="flex";
+      return;
+    }
+
+    card.classList.toggle("active");
+  });
+});
+
+function closeModal(){
+  document.getElementById("skillModal").style.display="none";
+}
