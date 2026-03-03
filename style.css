@@ -149,3 +149,34 @@ nav a{
   display:none;
   max-width:220px;
     }
+.skill-card{
+  cursor:pointer;
+  transition:0.4s;
+  overflow:hidden;
+}
+
+.skill-header{
+  font-weight:bold;
+}
+
+.skill-content{
+  max-height:0;
+  overflow:hidden;
+  transition:0.4s ease;
+  margin-top:10px;
+  font-size:14px;
+  color:#9ca3af;
+}
+
+.skill-card.active .skill-content{
+  max-height:200px;
+}
+
+.more-btn{
+  margin-top:10px;
+  padding:6px 12px;
+  background:#00ff9d;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+}
