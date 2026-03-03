@@ -6,10 +6,8 @@
 <title>Rhmany | Cybersecurity</title>
 
 <link rel="stylesheet" href="style.css">
-
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
-<!-- 3D Model Viewer -->
 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
 </head>
@@ -28,42 +26,71 @@
 </nav>
 
 <header class="hero">
-  <h1 id="typing"></h1>
-  <p>Mohamed kamal</p>
+  <h1 id="typing">Rhmany</h1>
   <p>Cybersecurity Junior 💻🔐</p>
   <button class="primary-btn" onclick="scrollToSection('projects')">Explore My Work</button>
 </header>
 
+<!-- ABOUT -->
 <section id="about" class="section">
   <h2>👨‍💻 About Me</h2>
   <p>
-    I specialize in <span class="highlight">Penetration Testing</span> and 
-    <span class="highlight">Vulnerability Assessment</span>.  
-    Experienced with Linux environments, network scanning, and SOC fundamentals.
+    Cybersecurity enthusiast focused on <strong>Offensive Security</strong> and 
+    <strong>Vulnerability Assessment</strong>.  
+    Hands-on experience with lab environments, enumeration, exploitation 
+    and post-exploitation techniques.
   </p>
 </section>
 
+<!-- SKILLS -->
 <section id="skills" class="section">
-<section id="skills" class="section">
-  <h2>🛠 Skills</h2>
+  <h2>🛠 Technical Skills</h2>
   <div class="cards">
 
+    <!-- NMAP -->
     <div class="card skill-card" data-skill="nmap">
-      <div class="skill-header">
-        🔍 Nmap
+      <div class="skill-header">🔍 Nmap</div>
+
+      <div class="progress">
+        <div class="progress-bar" style="width:85%"></div>
       </div>
+
       <div class="skill-content">
-        Nmap is used for network discovery and port scanning.
+        <p>
+          Advanced usage of Nmap for network discovery, port scanning,
+          service detection and OS fingerprinting.
+        </p>
+
+        <div class="tags">
+          <span>Port Scanning</span>
+          <span>Service Enumeration</span>
+          <span>OS Detection</span>
+        </div>
+
         <button class="more-btn">More Details</button>
       </div>
     </div>
 
+    <!-- LINUX -->
     <div class="card skill-card" data-skill="linux">
-      <div class="skill-header">
-        🐧 Linux
+      <div class="skill-header">🐧 Linux</div>
+
+      <div class="progress">
+        <div class="progress-bar" style="width:80%"></div>
       </div>
+
       <div class="skill-content">
-        Linux environments are essential in cybersecurity operations.
+        <p>
+          Comfortable working with Linux distributions such as Kali Linux
+          for penetration testing and system analysis.
+        </p>
+
+        <div class="tags">
+          <span>Bash</span>
+          <span>Networking</span>
+          <span>System Hardening</span>
+        </div>
+
         <button class="more-btn">More Details</button>
       </div>
     </div>
@@ -71,28 +98,67 @@
   </div>
 </section>
 
+<!-- PROJECTS -->
 <section id="projects" class="section">
   <h2>🚀 Projects</h2>
   <div class="cards">
+
     <div class="card">
-      <h3>Vulnerability Lab</h3>
-      <p>Performed scanning, enumeration and exploitation in lab environments.</p>
+      <h3>Vulnerability Assessment Lab</h3>
+      <p>
+        Conducted vulnerability scans and exploitation attempts within a 
+        controlled lab environment.
+      </p>
+
+      <div class="tags">
+        <span>Nmap</span>
+        <span>Linux</span>
+        <span>Enumeration</span>
+      </div>
     </div>
+
     <div class="card">
       <h3>TryHackMe Labs</h3>
-      <p>Hands-on offensive labs covering privilege escalation and exploitation.</p>
+      <p>
+        Completed multiple offensive security labs covering 
+        privilege escalation, web exploitation and network attacks.
+      </p>
+
+      <div class="tags">
+        <span>Web Exploitation</span>
+        <span>Privilege Escalation</span>
+        <span>CTF</span>
+      </div>
     </div>
+
   </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <h2>📩 Contact</h2>
+  <a href="mailto:elrhmany555@gmail.com" class="contact-btn">📧 Email</a>
+  <a href="https://wa.me/201141159697" target="_blank" class="contact-btn whatsapp">💬 WhatsApp</a>
 </section>
 
 <footer>
   © 2026 Rhmany
 </footer>
 
-<div class="pet" onclick="manualPet()"></div>
+<!-- 3D ROBOT -->
+<model-viewer
+  src="https://modelviewer.dev/shared-assets/models/RobotExpressive.glb"
+  class="pet-3d"
+  auto-rotate
+  auto-rotate-delay="0"
+  disable-zoom
+  interaction-prompt="none"
+  onclick="manualPet()">
+</model-viewer>
+
 <div class="pet-message" id="petMsg"></div>
 
-<!-- Skill Modal -->
+<!-- MODAL -->
 <div class="modal" id="skillModal">
   <div class="modal-content">
     <span class="close" onclick="closeModal()">&times;</span>
