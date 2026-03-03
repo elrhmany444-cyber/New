@@ -27,53 +27,109 @@ function scrollToSection(id){
 }
 
 // Pet Auto Messages
-const messages=[
-  "Welcome 👋",
+// =======================
+// PET SYSTEM
+// =======================
+
+const messages = [
+  "أهلا ياحبيب 👋",
   "استغفر ربنا 🤍",
   "صلي على النبي ﷺ",
   "Keep learning security 🔐",
-  "Stay ethical ⚔"
+  "Stay ethical ⚔",
+  " don't forget that i love u"
 ];
 
-function showPet(){
-  const msgBox=document.getElementById("petMsg");
-  const random=messages[Math.floor(Math.random()*messages.length)];
-  msgBox.innerText=random;
-  msgBox.style.display="block";
-  setTimeout(()=>{msgBox.style.display="none"},4000);
+// صوت خفيف (بيشتغل بعد أول تفاعل بس عشان المتصفح يسمح)
+const clickSound = new Audio("https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3");
+clickSound.volume = 0.3;
+
+function showPet() {
+  const msgBox = document.getElementById("petMsg");
+  if (!msgBox) return;
+
+  const random = messages[Math.floor(Math.random() * messages.length)];
+  msgBox.innerText = random;
+
+  msgBox.style.display = "block";
+  msgBox.style.opacity = "1";
+  msgBox.style.transform = "translateY(0px)";
+
+  setTimeout(() => {
+    msgBox.style.opacity = "0";
+    msgBox.style.transform = "translateY(10px)";
+    setTimeout(() => {
+      msgBox.style.display = "none";
+    }, 300);
+  }, 4000);
 }
 
-setInterval(showPet,15000);
-
-function manualPet(){
+function manualPet() {
   showPet();
+
+  // تشغيل الصوت
+  clickSound.play().catch(()=>{});
+
+  // تكبير الروبوت لحظة
+  const robot = document.querySelector(".pet-3d");
+  if(robot){
+    robot.style.transform = "scale(1.2)";
+    setTimeout(()=>{
+      robot.style.transform = "scale(1)";
+    },300);
+  }
 }
+
+// رسالة كل 20 ثانية
+setInterval(showPet, 20000);
+
+
+// =======================
+// SKILL SYSTEM
+// =======================
+
 const skillDetails = {
   nmap:{
     title:"Nmap (Network Mapper)",
-    text:"Nmap is a powerful open-source tool used for network discovery, port scanning, service enumeration and vulnerability identification. It helps security professionals identify open ports, running services and potential attack surfaces."
+    text:"Nmap is a powerful open-source tool used for network discovery, port scanning, service enumeration, OS detection and vulnerability identification."
   },
   linux:{
     title:"Linux Systems",
-    text:"Linux plays a critical role in cybersecurity. Most security tools run on Linux distributions like Kali. It provides flexibility, control and powerful networking capabilities."
+    text:"Linux plays a critical role in cybersecurity. Most security tools operate on Linux distributions like Kali Linux. It provides flexibility and powerful networking control."
   }
 };
 
 document.querySelectorAll(".skill-card").forEach(card=>{
   card.addEventListener("click",function(e){
 
+    // لو ضغط على زرار التفاصيل
     if(e.target.classList.contains("more-btn")){
+      e.stopPropagation();
+
       const skill = card.getAttribute("data-skill");
+      const modal = document.getElementById("skillModal");
+
       document.getElementById("modalTitle").innerText = skillDetails[skill].title;
       document.getElementById("modalText").innerText = skillDetails[skill].text;
-      document.getElementById("skillModal").style.display="flex";
+
+      modal.style.display = "flex";
+      modal.style.opacity = "1";
+      modal.style.transform = "scale(1)";
+
       return;
     }
 
+    // توسيع الكارت
     card.classList.toggle("active");
   });
 });
 
+// قفل المودال
 function closeModal(){
-  document.getElementById("skillModal").style.display="none";
+  const modal = document.getElementById("skillModal");
+  modal.style.opacity = "0";
+  modal.style.transform = "scale(0.9)";
+  setTimeout(()=>{
+    modal.style.display = "none";
+  },200);
 }
