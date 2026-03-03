@@ -9,70 +9,70 @@
 </head>
 <body>
 
-<header class="hero">
-  <div class="container">
-    <h1>Mohammed</h1>
-    <p class="tagline">Cybersecurity Junior focused on Offensive & Defensive Security.</p>
-    <a href="#projects" class="primary-btn">View Work</a>
+<div class="cyber-bg"></div>
+
+<nav>
+  <div class="logo">Rhmany</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
   </div>
+</nav>
+
+<header class="hero">
+  <h1 id="typing"></h1>
+  <p>Cybersecurity Junior 💻🔐</p>
+  <button class="primary-btn" onclick="scrollToSection('projects')">Explore My Work</button>
 </header>
 
-<section class="section about">
-  <div class="container">
-    <h2>About</h2>
-    <p>
-      Cybersecurity professional with hands-on experience in penetration testing,
-      vulnerability assessment and SOC fundamentals.
-      Strong interest in threat detection and offensive methodologies.
-    </p>
+<section id="about" class="section">
+  <h2>👨‍💻 About Me</h2>
+  <p>
+    I specialize in <span class="highlight">Penetration Testing</span> and 
+    <span class="highlight">Vulnerability Assessment</span>.  
+    Experienced with Linux environments, network scanning, and SOC fundamentals.
+  </p>
+</section>
+
+<section id="skills" class="section">
+  <h2>🛠 Skills</h2>
+  <div class="cards">
+    <div class="card">🔍 Nmap Scanning</div>
+    <div class="card">🛡 Vulnerability Assessment</div>
+    <div class="card">🐧 Linux Systems</div>
+    <div class="card">⚔ Offensive Security</div>
+    <div class="card">📡 Networking</div>
   </div>
 </section>
 
-<section class="section skills">
-  <div class="container">
-    <h2>Skills</h2>
-    <div class="skills-grid">
-      <div>Penetration Testing</div>
-      <div>Vulnerability Assessment</div>
-      <div>SOC Fundamentals</div>
-      <div>Linux</div>
-      <div>Nmap🗺</div>
-      <div>Burp Suite</div>
-      <div>Networking🌐</div>
+<section id="projects" class="section">
+  <h2>🚀 Projects</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Vulnerability Lab</h3>
+      <p>Performed scanning, enumeration and exploitation in lab environments.</p>
     </div>
-  </div>
-</section>
-
-<section class="section projects" id="projects">
-  <div class="container">
-    <h2>Projects</h2>
-
-    <div class="project-card">
-      <h3>Vulnerability Scan Lab</h3>
-      <p>Nmap scanning and vulnerability analysis in controlled lab environment.</p>
-    </div>
-
-    <div class="project-card">
+    <div class="card">
       <h3>TryHackMe Labs</h3>
-      <p>Hands-on offensive labs covering enumeration, exploitation and privilege escalation.</p>
+      <p>Hands-on offensive labs covering privilege escalation and exploitation.</p>
     </div>
-
   </div>
 </section>
 
-<section class="section contact">
-  <div class="container">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:elrhmany555@gmail.com">elrhmany555@gmail.com</a></p>
-    <p>WhatsApp: <a href="https://wa.me/201141159697" target="_blank">01141159697</a></p>
-  </div>
+<section id="contact" class="section">
+  <h2>📩 Contact</h2>
+  <a href="mailto:elrhmany555@gmail.com" class="contact-btn">📧 Email</a>
+  <a href="https://wa.me/201141159697" target="_blank" class="contact-btn whatsapp">💬 WhatsApp</a>
 </section>
 
 <footer>
-  <div class="container">
-    © 2026 Rhmany
-  </div>
+  © 2026 Rhmany
 </footer>
+
+<div class="pet" onclick="manualPet()"></div>
+<div class="pet-message" id="petMsg"></div>
 
 <script src="script.js"></script>
 </body>
